@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="icon" type="image/x-icon" href="./assets/icons/favicon.ico">
+    <link rel="stylesheet" href="./assets/css/employer.css">
+</head>
+<body>
+    <nav>
+        <img src="./assets/icons/logo.svg" alt="">
+        <div class="nav-items">
+            <input type="checkbox" class="notification">
+            <input type="checkbox" class="dropdown">
+            <div class="dropdown-group">
+                <a href="">profile</a>
+                <a href="">logout</a>
+                <a href="">profile</a>
+            </div>
+            <div class="notification-group">
+                <a href="">notification one</a>
+                <a href="">notification two</a>
+                <a href="">notification three</a>
+                <a href="">notification four</a>
+            </div>
+        </div>
+    </nav>
+    <main>
+        <img src="./assets/icons/add-big.png" alt="" class="add-task-big" id="openModal">
+    </main>
+    <div id="modalOverlay" class="modal-overlay">
+        <div class="notify" ></div>
+        <div id="modal" class="modall">
+            <span id="closeModal" class="close">&times;</span>
+            <h2>Add Task</h2>
+           
+            <form action='' method='post' class='modal-form'>
+                
+                <button class="btn btn-primary" type='submit'>Submit</button>
+            </form>
+            
+        </div>
+    </div>
+    <script src="./assets/js/main.js"></script>
+</body>
+</html>

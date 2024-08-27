@@ -1,0 +1,265 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+:root{
+    --primary:#144DDB;
+    --secondary:#040B44;
+    --accent:#161E33;
+    --accent-deep:#14141B;
+    --nature-white:#ffffff;
+    --nature-grey:#868686;
+}
+body{
+    overflow-x: hidden;
+}
+nav{
+    padding: 10px;
+    width: 100%;
+    background-color: transparent;
+    position: fixed;
+    margin-bottom: 30px;
+}
+.form-bg{
+    width: 100vw;
+    min-height: 100vh;
+    background: linear-gradient(140deg, var(--secondary), var(--primary));
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-inline: 20px;
+    overflow-x: hidden;
+}
+.left-ellipse,.right-ellipse{
+    position:absolute;
+}
+.right-ellipse{
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.left-ellipse{
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%) rotate(180deg);
+}
+.form-card{
+    position: relative;
+    backdrop-filter: blur(10px) saturate(159%);
+    -webkit-backdrop-filter: blur(10px) saturate(159%);
+    background-color: rgba(1, 2, 30, 0.46);
+    border-radius: 12px;
+    border: 1px solid #ffffff0f;
+    width: min(400px,100%);
+    padding: 20px;
+    color: var(--nature-white);
+    box-shadow: inset 1px 1px .3em var(--nature-white);
+    margin-top: 20px;
+}
+.cover{
+    position: relative;
+    width: min(400px,100%);
+}
+.top-circle{
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background-color: var(--primary);
+    border-radius: 50%;
+    top: -50px;
+    right: -50px;
+}
+.bottom-circle{
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background-color: var(--secondary);
+    border-radius: 50%;
+    bottom: -50px;
+    left: -50px;
+}
+.form-card form{
+    display: flex;
+    flex-direction: column;
+    /* gap: 10px; */
+    margin-block: 10px;
+}
+.form-card button{
+    margin: 10px auto;
+}
+.form-card h1{
+    text-align: center;
+    padding-block: 10px;
+}
+.form-card p{
+    text-align: center;
+    padding-block: 10px;
+    font-size: small;
+}
+.form-card a{
+    text-decoration: none;
+    color: var(--primary);
+    font-style: italic;
+}
+form input,select{
+    height: 40px;
+    background-color: transparent;
+    border: 1px solid var(--nature-grey);
+    border-radius: 8px;
+    color: #ffffff;
+    padding: 10px;
+    margin-block: 10px;
+
+    &:focus{
+        outline: none;
+    }
+}
+form option{
+    color: black;
+}
+.password-container {
+    position: relative;
+}
+.password-container input {
+    width: 100%;
+    padding-right: 40px;
+}
+.password-container span {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+#openEye{
+    display: none;
+}
+/* ----------- bounce animation style begins here ----------- */
+
+.bounce-top {
+	-webkit-animation: bounce-top 15s ease-in-out infinite alternate both;
+	        animation: bounce-top 15s ease-in-out infinite alternate both;
+}
+.bounce-top:nth-child(2){
+	-webkit-animation: bounce-top 10s ease-in-out infinite alternate-reverse both;
+	        animation: bounce-top 10s ease-in-out infinite alternate-reverse both;
+}
+@-webkit-keyframes bounce-top {
+    0% {
+      -webkit-transform: translateY(-45px);
+              transform: translateY(-45px);
+      -webkit-animation-timing-function: ease-in;
+              animation-timing-function: ease-in;
+      opacity: 1;
+    }
+    24% {
+      opacity: 1;
+    }
+    40% {
+      -webkit-transform: translateY(-24px);
+              transform: translateY(-24px);
+      -webkit-animation-timing-function: ease-in;
+              animation-timing-function: ease-in;
+    }
+    65% {
+      -webkit-transform: translateY(-12px);
+              transform: translateY(-12px);
+      -webkit-animation-timing-function: ease-in;
+              animation-timing-function: ease-in;
+    }
+    82% {
+      -webkit-transform: translateY(-6px);
+              transform: translateY(-6px);
+      -webkit-animation-timing-function: ease-in;
+              animation-timing-function: ease-in;
+    }
+    93% {
+      -webkit-transform: translateY(-4px);
+              transform: translateY(-4px);
+      -webkit-animation-timing-function: ease-in;
+              animation-timing-function: ease-in;
+    }
+    25%,
+    55%,
+    75%,
+    87% {
+      -webkit-transform: translateY(0px);
+              transform: translateY(0px);
+      -webkit-animation-timing-function: ease-out;
+              animation-timing-function: ease-out;
+    }
+    100% {
+      -webkit-transform: translateY(0px);
+              transform: translateY(0px);
+      -webkit-animation-timing-function: ease-out;
+              animation-timing-function: ease-out;
+      opacity: 1;
+    }
+  }
+  @keyframes bounce-top {
+    0% {
+      -webkit-transform: translateY(-45px);
+              transform: translateY(-45px);
+      -webkit-animation-timing-function: ease-in;
+              animation-timing-function: ease-in;
+      opacity: 1;
+    }
+    24% {
+      opacity: 1;
+    }
+    40% {
+      -webkit-transform: translateY(-24px);
+              transform: translateY(-24px);
+      -webkit-animation-timing-function: ease-in;
+              animation-timing-function: ease-in;
+    }
+    65% {
+      -webkit-transform: translateY(-12px);
+              transform: translateY(-12px);
+      -webkit-animation-timing-function: ease-in;
+              animation-timing-function: ease-in;
+    }
+    82% {
+      -webkit-transform: translateY(-6px);
+              transform: translateY(-6px);
+      -webkit-animation-timing-function: ease-in;
+              animation-timing-function: ease-in;
+    }
+    93% {
+      -webkit-transform: translateY(-4px);
+              transform: translateY(-4px);
+      -webkit-animation-timing-function: ease-in;
+              animation-timing-function: ease-in;
+    }
+    25%,
+    55%,
+    75%,
+    87% {
+      -webkit-transform: translateY(0px);
+              transform: translateY(0px);
+      -webkit-animation-timing-function: ease-out;
+              animation-timing-function: ease-out;
+    }
+    100% {
+      -webkit-transform: translateY(0px);
+              transform: translateY(0px);
+      -webkit-animation-timing-function: ease-out;
+              animation-timing-function: ease-out;
+      opacity: 1;
+    }
+  }
+
+/* --------- bounce animation style ends ---------- */
+
+.btn{
+    height: 40px;
+    border-radius: 8px;
+    border: none;
+    width: min(100px,100%);
+    height: 40px;
+}
+.btn-primary{
+    color: var(--nature-white);
+    background-color: var(--primary);
+}
