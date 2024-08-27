@@ -115,6 +115,9 @@ form input,select{
         outline: none;
     }
 }
+form input:user-invalid{
+    border-color: red;
+}
 form option{
     color: black;
 }
