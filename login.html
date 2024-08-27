@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tasker login page</title>
+    <link rel="icon" type="image/x-icon" href="./assets/icons/favicon.ico">
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+<body>
+    <nav><img src="./assets/icons/logo.svg" alt="Tasker logo"></nav>
+    <main class="form-bg">
+        <svg class="left-ellipse" width="124" height="247" viewBox="0 0 124 247" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle opacity="0.11" cx="123.5" cy="123.5" r="98" transform="matrix(1 0 0 -1 0 247)" stroke="white" stroke-width="51"/>
+        </svg>
+        <svg class="right-ellipse" width="124" height="247" viewBox="0 0 124 247" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle opacity="0.11" cx="123.5" cy="123.5" r="98" transform="matrix(1 0 0 -1 0 247)" stroke="white" stroke-width="51"/>
+        </svg>
+        <div class="cover">
+            <div class="top-circle bounce-top"></div>
+            <div class="bottom-circle bounce-top"></div>
+            <div class="form-card">
+                <h1>Login</h1>
+                <form action="">
+                    <input type="email" name="email" placeholder="Email">
+                    <div class="password-container">
+                        <input type="password" id="password" class="form-control" placeholder='Password' required>
+                        <span id="togglePassword">
+                            <svg id="closedEye" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M20.3984 19.5L5.39844 4.5M10.1984 10.4416C9.82502 10.8533 9.59844 11.394 9.59844 11.9863C9.59844 13.2761 10.673 14.3217 11.9984 14.3217C12.6096 14.3217 13.1674 14.0994 13.5911 13.7334M20.4372 14.3217C21.2635 13.0848 21.5984 12.0761 21.5984 12.0761C21.5984 12.0761 19.4138 5.1 11.9984 5.1C11.5821 5.1 11.1823 5.12199 10.7984 5.16349M17.3984 17.3494C16.021 18.2281 14.2478 18.8495 11.9984 18.8127C4.67536 18.693 2.39844 12.0761 2.39844 12.0761C2.39844 12.0761 3.45629 8.69808 6.59844 6.64332" stroke="#9E9E9C" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                            
+                            <svg id="openEye" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#9E9E9C" class="bi bi-eye" viewBox="0 0 16 16">
+                              <path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8M1.173 8a13 13 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5s3.879 1.168 5.168 2.457A13 13 0 0 1 14.828 8q-.086.13-.195.288c-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5s-3.879-1.168-5.168-2.457A13 13 0 0 1 1.172 8z"/>
+                              <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5M4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0"/>
+                            </svg>
+                        </span>
+                      </div>
+                    <button class="btn btn-primary" type="submit">Submit</button>
+                    <p>Don't have an account? <a href="./signup.html">Sign up</a></p>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <script src="./assets/js/main.js"></script>
+</body>
+</html>

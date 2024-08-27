@@ -1,0 +1,217 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+:root {
+  --primary: #144ddb;
+  --secondary: #040b44;
+  --accent: #161e33;
+  --accent-deep: #14141b;
+  --nature-white: #ffffff;
+  --nature-grey: #868686;
+}
+body {
+  overflow-x: hidden;
+  background: linear-gradient(var(--accent-deep), var(--accent));
+  min-height: 100vh;
+}
+nav {
+  position: fixed;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  background-color: var(--accent-deep);
+}
+nav img {
+  width: 150px;
+}
+.nav-items {
+  position: relative;
+}
+.dropdown {
+  appearance: none;
+  display: inline-block;
+  margin-inline: 10px;
+}
+.dropdown::after {
+  content: url("../icons/dropdown.svg");
+}
+.dropdown:checked::after {
+  content: url("../icons/dropdown-check.svg");
+}
+.dropdown-group {
+  display: none;
+  flex-direction: column;
+  padding: 5px;
+  border-radius: 5px;
+  background-color: var(--nature-grey);
+  position: absolute;
+  top: 50px;
+  right: 0;
+}
+.dropdown:checked ~ .dropdown-group {
+  display: flex;
+}
+.dropdown ~ .dropdown-group {
+  display: none;
+}
+.notification {
+  appearance: none;
+  display: inline-block;
+  margin-inline: 10px;
+}
+.notification::after {
+  content: url("../icons/notification.svg");
+}
+.notification:checked::after {
+  content: url("../icons/notification-check.svg");
+}
+.notification-group {
+  display: none;
+  flex-direction: column;
+  padding: 5px;
+  border-radius: 5px;
+  background-color: var(--nature-grey);
+  position: absolute;
+  top: 50px;
+  left: 0;
+}
+.notification:checked ~ .notification-group {
+  display: flex;
+}
+.notification ~ .notification-group {
+  display: none;
+}
+.add-task-big {
+  width: clamp(80px, 10vw, 150px);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+}
+/* ============== styling for modal starts here =============== */
+#openModal {
+  padding: 10px 20px;
+  font-size: 16px;
+}
+
+.modal-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  padding: 10px;
+}
+
+.modal-overlay.show {
+  display: block;
+  opacity: 1;
+  backdrop-filter: blur(2px) saturate(159%);
+  -webkit-backdrop-filter: blur(10px) saturate(159%);
+}
+
+.modall {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  padding: 20px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  z-index: 2;
+  max-width: 550px;
+  /* height: 472px; */
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  padding: 12px;
+}
+.modall h2 {
+  font-weight: 900;
+  font-size: 32px;
+  color: #232323;
+}
+.modall button {
+  padding: 18px 0px 18px 0px;
+  border-radius: 8px;
+  opacity: 0px;
+  background-color: #1bb1e4;
+  width: 100%;
+  border: none;
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 23.44px;
+}
+.modal-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.modal-form > * {
+  margin-block: 20px;
+  max-width: 460px;
+}
+.modal-form .form-control {
+  background-color: #f7f7f8;
+  border: none;
+  height: 56px;
+  border-radius: 8px;
+  outline: none;
+}
+.modal-form .form-control {
+  box-shadow: none;
+}
+.modal-form input,
+select {
+  height: 56px;
+  border-radius: 8px;
+}
+.modal-form .form-control::placeholder {
+  font-size: 14px;
+  font-weight: 400;
+  color: #9e9e9c;
+}
+.modal-card {
+  width: 356.08px;
+  height: 114.31px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  padding: 10px;
+  text-align: center;
+  margin-bottom: 10px;
+}
+.modall p {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 20px;
+  text-align: center;
+  color: #232323;
+  max-width: 355px;
+}
+.close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 20px;
+  cursor: pointer;
+  color: #9e9e9c;
+}
+span#openModal {
+  color: #06674f;
+  cursor: pointer;
+}
+/* ================ modal styling ends ==================  */
