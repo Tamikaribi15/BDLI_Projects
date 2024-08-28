@@ -100,6 +100,7 @@ main{
   justify-content: center;
   gap: 30px;
   color: var(--nature-white);
+  min-height: 100vh;
 }
 #todos{
   width: min(500px, 100%);
@@ -108,6 +109,8 @@ main{
   background-color: var(--accent-deep);
   padding: 10px;
   height: auto;
+  min-height: 100px;
+  align-self: baseline;
 }
 #completed{
   width: min(500px, 100%);
@@ -116,6 +119,8 @@ main{
   background-color: var(--accent-deep);
   padding: 10px;
   height: auto;
+  min-height: 100px;
+  align-self: baseline;
 }
 .task{
   border: 1px solid var(--primary);
@@ -124,3 +129,19 @@ main{
   background-color: var(--secondary);
   margin-top: 10px;
 }
+.draggable {
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+}
+.draggable.dragging {
+  border-color: #ffab00;
+  box-shadow: 0 0 15px rgba(255, 171, 0, 0.6);
+  /* transform: translateY(-10px) rotate(3deg); */
+  /* animation: shake-bombom 0.3s ease infinite */
+}
+/* @keyframes shake-bombom {
+  0% { transform: rotate(0deg); }
+  25% { transform: rotate(3deg); }
+  50% { transform: rotate(-3deg); }
+  75% { transform: rotate(2deg); }
+  100% { transform: rotate(0deg); }
+} */
