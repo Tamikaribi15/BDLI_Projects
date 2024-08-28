@@ -29,19 +29,19 @@
     <main>
         <div id="todos" ondrop="drop(event, 'todo')" ondragover="allowDrop(event)">
             <h1>TODOS</h1>
-            <div class="task" id="tasks1" draggable="true" ondragstart="drag(event)">
+            <div class="task draggable" id="tasks1" draggable="true" ondragstart="drag(event)" ondragend="resetEffect(event)">
                 <h3 id="title">Task Title</h3>
                 <p id="description">Task Description</p>
                 <p id="date">Task Date</p>
                 <p id="status">todo</p>
             </div>
-            <div class="task" id="tasks2" draggable="true" ondragstart="drag(event)">
+            <div class="task draggable" id="tasks2" draggable="true" ondragstart="drag(event)" ondragend="resetEffect(event)">
                 <h3 id="title">Task Title</h3>
                 <p id="description">Task Description</p>
                 <p id="date">Task Date</p>
                 <p id="status">todo</p>
             </div>
-            <div class="task" id="tasks3" draggable="true" ondragstart="drag(event)">
+            <div class="task draggable" id="tasks3" draggable="true" ondragstart="drag(event)" ondragend="resetEffect(event)">
                 <h3 id="title">Task Title</h3>
                 <p id="description">Task Description</p>
                 <p id="date">Task Date</p>
@@ -51,7 +51,7 @@
         
         <div id="completed" ondrop="drop(event, 'completed')" ondragover="allowDrop(event)">
             <h1>COMPLETED</h1>
-            <div class="task" id="task1" draggable="true" ondragstart="drag(event)">
+            <div class="task draggable" id="task1" draggable="true" ondragstart="drag(event)" ondragend="resetEffect(event)">
                 <h3 id="title">Completed Task Title</h3>
                 <p id="description">Completed Task Description</p>
                 <p id="date">Completed Task Date</p>
