@@ -52,6 +52,11 @@ nav img {
   top: 50px;
   right: 0;
 }
+.dropdown-group a{
+  display: inline-block;
+  padding: 10px;
+  text-decoration: none;
+}
 .dropdown:checked ~ .dropdown-group {
   display: flex;
 }
@@ -77,7 +82,11 @@ nav img {
   background-color: var(--nature-grey);
   position: absolute;
   top: 50px;
-  left: 0;
+  left: -80px;
+  width: 200px;
+}
+.notification-group li{
+  padding: 10px;
 }
 .notification:checked ~ .notification-group {
   display: flex;
@@ -107,7 +116,8 @@ main{
   border: 1px solid var(--nature-grey);
   border-radius: 5px;
   background-color: var(--accent-deep);
-  padding: 10px;
+  padding: 20px;
+  padding-bottom: 40px;
   height: auto;
   min-height: 100px;
   align-self: baseline;
@@ -117,7 +127,8 @@ main{
   border: 1px solid var(--nature-grey);
   border-radius: 5px;
   background-color: var(--accent-deep);
-  padding: 10px;
+  padding: 20px;
+  padding-bottom: 40px;
   height: auto;
   min-height: 100px;
   align-self: baseline;
@@ -127,7 +138,7 @@ main{
   border-radius: 5px;
   padding: 10px;
   background-color: var(--secondary);
-  margin-top: 10px;
+  margin-top: 20px;
 }
 .draggable {
   transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
