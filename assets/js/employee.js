@@ -36,3 +36,17 @@ function resetEffect(event) {
         element.classList.remove('dragging');
     }
 }
+
+ // notification group and haamburger group should not display together
+ const notification = document.querySelector('.notification');
+ const dropdown = document.querySelector('.dropdown');
+ notification.addEventListener('change', function () {
+     if (this.checked) {
+         dropdown.checked = false;
+     } 
+ });
+ dropdown.addEventListener('change', function () {
+     if (this.checked) {
+         notification.checked = false;
+     } 
+ });

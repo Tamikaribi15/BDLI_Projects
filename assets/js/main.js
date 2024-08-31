@@ -44,30 +44,3 @@ try {
 } catch (error) {
     console.log(error)
 }
-
-
-document.addEventListener('DOMContentLoaded', (event) => {
-    const modalOverlay = document.getElementById('modalOverlay');
-    const openModalButton = document.getElementById('openModal');
-    const closeModalButton = document.getElementById('closeModal');
-    const doneBtn = document.getElementById('doneBtn');
-
-try {
-    openModalButton.addEventListener('click', () => {
-        modalOverlay.classList.add('show');
-    });
-
-    closeModalButton.addEventListener('click', () => {
-        modalOverlay.classList.remove('show');
-    });
-
-    // window.addEventListener('click', (event) => {
-    //     if (event.target === modalOverlay) {
-    //         modalOverlay.classList.remove('show');
-    //     }
-    // });
-} catch (error) {
-    console.log(error)
-}
-
-});
