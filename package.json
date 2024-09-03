@@ -1,0 +1,21 @@
+{
+  "name": "bdli_projects",
+  "version": "1.0.0",
+  "description": "task management project",
+  "main": "index.js",
+  "scripts": {
+    "start": "node --watch index"
+  },
+  "author": "manueljo",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "connect-session-sequelize": "^7.1.7",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "express-handlebars": "^8.0.1",
+    "express-session": "^1.18.0",
+    "mysql2": "^3.11.0",
+    "sequelize": "^6.37.3"
+  }
+}

@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tasker login page</title>
-    <link rel="icon" type="image/x-icon" href="./assets/icons/favicon.ico">
-    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="icon" type="image/x-icon" href="/assets/icons/favicon.ico">
+    <link rel="stylesheet" href="/assets/css/style.css">
 </head>
 <body>
-    <nav><img src="./assets/icons/logo.svg" alt="Tasker logo"></nav>
+    <nav><img src="/assets/icons/logo.svg" alt="Tasker logo"></nav>
     <main class="form-bg">
         <svg class="left-ellipse" width="124" height="247" viewBox="0 0 124 247" fill="none" xmlns="http://www.w3.org/2000/svg">
             <circle opacity="0.11" cx="123.5" cy="123.5" r="98" transform="matrix(1 0 0 -1 0 247)" stroke="white" stroke-width="51"/>
@@ -20,15 +20,9 @@
             <div class="top-circle bounce-top"></div>
             <div class="bottom-circle bounce-top"></div>
             <div class="form-card">
-                <h1>Signup</h1>
+                <h1>Login</h1>
                 <form action="">
-                    <input type="text" name="email" placeholder="Full name" required>
                     <input type="email" name="email" placeholder="Email" required>
-                    <select name="role" id="" required>
-                        <option value="" selected disabled hidden class="role">Role</option>
-                        <option value="employee">employee</option>
-                        <option value="employer">employer</option>
-                    </select>
                     <div class="password-container">
                         <input type="password" id="password" class="form-control" placeholder='Password' required>
                         <span id="togglePassword">
@@ -43,12 +37,11 @@
                         </span>
                       </div>
                     <button class="btn btn-primary" type="submit">Submit</button>
-                    <p>Already have an account? <a href="./login.html">Sign in</a></p>
+                    <p>Don't have an account? <a href="/signup">Sign up</a></p>
                 </form>
             </div>
         </div>
     </main>
-
-    <script src="./assets/js/main.js"></script>
+    <script src="/assets/js/main.js"></script>
 </body>
 </html>
