@@ -1,6 +1,8 @@
 const express = require('express');
 const sequelize = require('./config/database');
 const session = require('express-session');
+const task = require('./models/Task');
+const notification = require('./models/Notification');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 const handlebars = require('express-handlebars');
 const account = require('./routes/account');
@@ -31,7 +33,7 @@ app.use(
         await sequelize.authenticate();
         console.log('Connection has been established successfully.');
 
-        await sequelize.sync({ alter: true });
+        await sequelize.sync({ force: true });
         console.log('All models were synchronized successfully.');
     } catch (error) {
         console.error('Unable to connect to the database:', error);
@@ -39,7 +41,7 @@ app.use(
 })();
 
 // middlewares for assets and form
-app.use(express.static(path.join(__dirname, 'public')))
+app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.urlencoded({ extended: true }));
 
 // view engine configuration

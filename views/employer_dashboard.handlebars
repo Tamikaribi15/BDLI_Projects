@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,6 +9,7 @@
     <link rel="stylesheet" href="/assets/css/employer.css">
 
 </head>
+
 <body>
     <nav>
         <img src="/assets/icons/logo.svg" alt="">
@@ -28,33 +30,54 @@
         </div>
     </nav>
     <main>
-        <img src="/assets/icons/add-big.png" alt="" class="add-task-big" id="openModal">
+        {{#if tasks}}
+            {{#each tasks}}
+                <div class="task">
+                    <h3 id="title" contenteditable="true">{{this.dataValues.title}}</h3>
+                    <p id="description" contenteditable="true">{{this.dataValues.description}}</p>
+                    <p id="date">{{this.dataValues.dueDate}}</p>
+                    <p id="status">{{this.dataValues.status}}</p>
+                </div>
+            {{/each}}
+        {{/if}}
+
+        {{#unless tasks}}
+            <img src="/assets/icons/add-big.png" alt="" class="add-task-big" id="openModal">
+        {{/unless}}
     </main>
+        {{#if tasks}}
+            <div id="openModal">
+                <img class="add-sm" src="/assets/icons/add-sm.png" alt="" >
+            </div>
+        {{/if}}
 
     <div id="modalOverlay" class="modal-overlay">
         <!-- <div class="notify" ></div> -->
         <div id="modal" class="modall">
             <span id="closeModal" class="close">&times;</span>
             <h2>Create Task</h2>
-           
+
             <form action='' method='post' class='modal-form'>
-                <input type="text" placeholder="Task name" class="form-control" required>
-                <textarea name="" rows="10" placeholder="Task description" id="" required></textarea>
-                <input type="date" class="form-control" required >
+                <input name="title" type="text" placeholder="Task name" class="form-control" required>
+                <textarea name="description" rows="10" placeholder="Task description" id="" required></textarea>
+                <input name="dueDate" type="date" class="form-control" required>
                 <input list="employees" name="employee" id="employee" required placeholder="Assigned to">
-                    <datalist id="employees">
-                        <option value="mj@gmail.com">
-                        <option value="ruth@gmail.com">
-                        <option value="roo@gmail.com">
-                        <option value="looo@gmail.com">
-                    </datalist>
+                <datalist id="employees">
+                    {{#if employees}}
+                    {{#each employees}}
+                    <option value="{{this.dataValues.email}}">
+                        {{/each}}
+                        {{/if}}
+
+                </datalist>
 
                 <button class="btn btn-primary" type='submit'>Submit</button>
             </form>
-            
+
         </div>
     </div>
-    
+
     <script src="/assets/js/employer.js"></script>
 </body>
+
 </html>
