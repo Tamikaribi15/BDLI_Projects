@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const User = require('../models/User');
+const bcrypt = require('bcryptjs');
 
 
 router.get('/', (req, res) => {
@@ -14,7 +15,7 @@ router.post('/', async (req, res) => {
         const user = await User.findOne({ where: { email } });
 
         if (!user) {
-            return res.render('login', { noUser: 'incorrect login credentials' });
+            return res.render('login', { noUser: "user doesn't exist" });
         }
 
         const isMatch = await bcrypt.compare(password, user.password);
@@ -32,20 +33,10 @@ router.post('/', async (req, res) => {
 
         return res.redirect('employee/dashboard');
     } catch (error) {
+        console.log(error.message)
         res.status(500).json({ error: error.message });
     }
 })
-
-
-router.get('/logout', (req, res) => {
-    req.session.destroy((err) => {
-        if (err) {
-            return res.status(500).json({ error: 'Failed to log out' });
-        }
-        res.clearCookie('connect.sid');
-        res.redirect('/')
-    });
-});
 
 router.get('/signup', (req, res) => {
     res.render('signup');
@@ -57,7 +48,7 @@ router.post('/signup', async (req, res) => {
         const existingUser = await User.findOne({ where: { email } });
 
         if (existingUser) {
-            res.render('signup', { userExist: 'this User already exists' });
+            return res.render('signup', { userExist: 'this User already exists' });
         }
 
         const user = await User.create({ name, email, password, role });
@@ -68,8 +59,19 @@ router.post('/signup', async (req, res) => {
         return res.redirect('employee/dashboard');
 
     } catch (error) {
-        res.status(400).json({ error: error.message });
+        return res.status(400).json({ error: error.message });
     }
 })
+
+router.get('/logout', (req, res) => {
+    req.session.destroy((err) => {
+        if (err) {
+            return res.status(500).json({ error: 'Failed to log out' });
+        }
+        res.clearCookie('connect.sid');
+        res.redirect('/')
+    });
+});
+
 
 module.exports = router
