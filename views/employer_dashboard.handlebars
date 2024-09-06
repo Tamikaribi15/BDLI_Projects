@@ -41,13 +41,15 @@
             {{/each}}
         {{/if}}
 
-        {{#unless tasks}}
-            <img src="/assets/icons/add-big.png" alt="" class="add-task-big" id="openModal">
+        {{#unless tasks.length}}
+            <div id="openModal">
+                <img src="/assets/icons/add-big.png" alt="" class="add-task-big">
+            </div>
         {{/unless}}
     </main>
         {{#if tasks}}
-            <div id="openModal">
-                <img class="add-sm" src="/assets/icons/add-sm.png" alt="" >
+            <div class="add-sm">
+                <img  src="/assets/icons/add-sm.png" alt="" id="openModal">
             </div>
         {{/if}}
 

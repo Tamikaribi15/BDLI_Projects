@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
     <link rel="icon" type="image/x-icon" href="/assets/icons/favicon.ico">
     <link rel="stylesheet" href="/assets/css/employee.css">
 </head>
+
 <body>
     <nav>
         <img src="/assets/icons/logo.svg" alt="">
@@ -26,8 +28,44 @@
         </div>
     </nav>
     <main>
-        <h1 class="no-task">NO TASK</h1>
+        {{#if pendingTasks }}
+        <div id="todos" ondrop="drop(event, 'Pending')" ondragover="allowDrop(event)">
+            <h1>TASKS</h1>
+            {{#each pendingTasks}}
+                {{#if this.dataValues.status }}
+                <div class="task draggable" id="task{{this.dataValues.taskId}}" draggable="true" ondragstart="drag(event)" ondragend="resetEffect(event)">
+                    <h3 id="title">{{this.dataValues.title}}</h3>
+                    <p id="description">{{this.dataValues.description}}</p>
+                    <p id="date">{{this.dataValues.dueDate}}</p>
+                    <p id="status">{{this.dataValues.status}}</p>
+                </div>
+                {{/if}}
+            {{/each}}
+        </div>
+
+        <div id="completed" ondrop="drop(event, 'Completed')" ondragover="allowDrop(event)">
+            <h1>COMPLETED</h1>
+            {{#each completedTasks}}
+                {{#if this.dataValues.status }}
+                    <div class="task draggable" id="task{{this.dataValues.taskId}}" draggable="true" ondragstart="drag(event)" ondragend="resetEffect(event)">
+                        <h3 id="title">{{this.dataValues.title}}</h3>
+                        <p id="description">{{this.dataValues.description}}</p>
+                        <p id="date">{{this.dataValues.dueDate}}</p>
+                        <p id="status">{{this.dataValues.status}}</p>
+                    </div>
+                {{/if}}
+            {{/each}}                
+        </div>
+
+        {{/if}}
+
+        {{#unless pendingTasks}}
+            {{#unless completedTasks}}
+                <h1 class="no-task">NO TASK</h1>
+            {{/unless}}
+        {{/unless}}
     </main>
     <script src="/assets/js/employee.js"></script>
 </body>
+
 </html>

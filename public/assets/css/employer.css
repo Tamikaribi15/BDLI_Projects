@@ -244,5 +244,7 @@ span#openModal {
 .add-sm{
   position: fixed;
   inset: auto 20px 20px auto;
-  width: 50px;
+}
+.add-sm img{
+  width: 100px;
 }
