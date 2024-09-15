@@ -8,7 +8,14 @@ const Notification = sequelize.define('Notification', {
     primaryKey: true,
     autoIncrement: true,
   },
-  userId: {
+  createdFor: {
+    type: DataTypes.INTEGER,
+    references: {
+      model: User,
+      key: 'userId',
+    },
+  },
+  createdBy: {
     type: DataTypes.INTEGER,
     references: {
       model: User,

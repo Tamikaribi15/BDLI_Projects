@@ -3,6 +3,7 @@ const router = express.Router();
 const isAuthenticated = require('../middlewares/auth')
 const Task = require('../models/Task');
 const User = require('../models/User');
+const Notification = require('../models/Notification');
 
 
 router.get('/dashboard', isAuthenticated, async (req, res) => {
@@ -13,11 +14,17 @@ router.get('/dashboard', isAuthenticated, async (req, res) => {
             }
         });
 
+        const notifications = await Notification.findAll({
+            where: {
+                createdFor: req.session.userId,
+            }
+        })
+
         // Separate tasks by status
         const pendingTasks = tasks.filter(task => task.status === 'Pending');
         const completedTasks = tasks.filter(task => task.status === 'Completed');
 
-        return res.render('employee_dashboard', { pendingTasks: pendingTasks, completedTasks: completedTasks });
+        return res.render('employee_dashboard', { pendingTasks: pendingTasks, completedTasks: completedTasks,notifications: notifications });
 
     } catch (error) {
         console.error(error);
@@ -41,6 +48,18 @@ router.post('/dashboard', isAuthenticated, async (req, res) => {
 
         // ======== Save the updated task back to the database
         await task.save();
+
+        const notifications = await Notification.findAll({
+            where: {
+                createdFor: req.session.userId,
+            }
+        })
+        
+        await Notification.create({
+            message: "Task status has changed",
+            createdFor: notifications.createdBy ,
+            createdBy: req.session.userId
+        });
         return res.redirect('/employee/dashboard');
 
     } catch (error) {

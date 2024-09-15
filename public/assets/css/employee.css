@@ -47,15 +47,16 @@ nav img {
   flex-direction: column;
   padding: 5px;
   border-radius: 5px;
-  background-color: var(--nature-grey);
+  background-color: var(--nature-white);
+  color: var(--secondary);
   position: absolute;
   top: 50px;
   right: 0;
 }
 .dropdown-group a{
-  display: inline-block;
-  padding: 10px;
   text-decoration: none;
+  display: inline-block;
+  margin: 10px;
 }
 .dropdown:checked ~ .dropdown-group {
   display: flex;
@@ -79,11 +80,17 @@ nav img {
   flex-direction: column;
   padding: 5px;
   border-radius: 5px;
-  background-color: var(--nature-grey);
+  background-color: var(--nature-white);
   position: absolute;
+  width: 250px;
+  min-height: 50px;
   top: 50px;
-  left: -80px;
-  width: 200px;
+  right: 0;
+}
+.notification-group a{
+  text-decoration: none;
+  display: inline-block;
+  margin: 5px;
 }
 .notification-group li{
   padding: 10px;
@@ -156,3 +163,4 @@ main{
   75% { transform: rotate(2deg); }
   100% { transform: rotate(0deg); }
 } */
+@

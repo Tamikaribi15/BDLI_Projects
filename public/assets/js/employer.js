@@ -12,28 +12,24 @@ document.addEventListener("DOMContentLoaded", (event) => {
             modalOverlay.classList.remove("show");
         });
 
-        // window.addEventListener('click', (event) => {
-        //     if (event.target === modalOverlay) {
-        //         modalOverlay.classList.remove('show');
-        //     }
-        // });
+
     } catch (error) {
         console.log(error);
     }
 
 
-
-    // notification group and haamburger group should not display together
+    // =============== notification group and haamburger group should not display together
     const notification = document.querySelector('#notification');
     const dropdown = document.querySelector('#dropdown');
-    notification.addEventListener('change', function () {
+    notification.addEventListener('click', function () {
         if (this.checked) {
             dropdown.checked = false;
-        } 
+        }
+
     });
-    dropdown.addEventListener('change', function () {
+    dropdown.addEventListener('click', function () {
         if (this.checked) {
             notification.checked = false;
-        } 
+        }
     });
 });

@@ -3,6 +3,7 @@ const router = express.Router();
 const isAuthenticated = require('../middlewares/auth')
 const User = require('../models/User');
 const Task = require('../models/Task');
+const Notification = require('../models/Notification');
 
 
 router.get('/dashboard', isAuthenticated, async (req, res) => {
@@ -20,8 +21,14 @@ router.get('/dashboard', isAuthenticated, async (req, res) => {
                 employerId: req.session.userId,
             }
         });
+
+        const notifications = await Notification.findAll({
+            where: {
+                createdFor: req.session.userId,
+            }
+        })
         
-        return res.render('employer_dashboard', { employees:employees, tasks: tasks });
+        return res.render('employer_dashboard', { employees:employees, tasks: tasks, notifications: notifications});
     } catch (error) {
         console.error('Error fetching employees:', error);
         res.status(500).send('Server error');
@@ -49,6 +56,14 @@ router.post('/dashboard', isAuthenticated, async (req, res) => {
             employerId: req.session.userId,
             status: 'Pending',
         });
+
+        await Notification.create({
+            message: "You have been assigned a task",
+            createdFor: employeeUser.userId,
+            createdBy: req.session.userId,
+        });
+
+
 
         res.redirect('/employer/dashboard');
 

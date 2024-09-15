@@ -16,13 +16,15 @@
             <input type="checkbox" class="notification">
             <input type="checkbox" class="dropdown">
             <div class="dropdown-group">
-                <a href="">Sign out</a>
+                <a href="/logout">Sign out</a>
             </div>
             <div class="notification-group">
                 <ul>
-                    <li>john doe completed task jsndj snjd</li>
-                    <li>john doe completed task</li>
-                    <li>john doe completed task</li>
+                    {{#if notifications}}
+                        {{#each notifications}}
+                            <li>{{this.dataValues.message}}</li>
+                        {{/each}}
+                    {{/if}}
                 </ul>
             </div>
         </div>
