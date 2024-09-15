@@ -47,10 +47,17 @@ nav img {
   flex-direction: column;
   padding: 5px;
   border-radius: 5px;
-  background-color: var(--nature-grey);
+  background-color: var(--nature-white);
+  color: var(--secondary);
   position: absolute;
   top: 50px;
   right: 0;
+}
+.dropdown-group a{
+  text-decoration: none;
+  display: inline-block;
+  margin: 10px;
+
 }
 .dropdown:checked ~ .dropdown-group {
   display: flex;
@@ -74,10 +81,17 @@ nav img {
   flex-direction: column;
   padding: 5px;
   border-radius: 5px;
-  background-color: var(--nature-grey);
+  background-color: var(--nature-white);
   position: absolute;
+  width: 200px;
+  min-height: 50px;
   top: 50px;
-  left: 0;
+  right: 0;
+}
+.notification-group a{
+  text-decoration: none;
+  display: inline-block;
+  margin: 5px;
 }
 .notification:checked ~ .notification-group {
   display: flex;

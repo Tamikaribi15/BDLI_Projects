@@ -10,22 +10,23 @@
 
 </head>
 
-<body>
+<body id="body">
     <nav>
         <img src="/assets/icons/logo.svg" alt="">
         <div class="nav-items">
             <input type="checkbox" class="notification" id="notification">
             <input type="checkbox" class="dropdown" id="dropdown">
             <div class="dropdown-group">
-                <a href="">profile</a>
-                <a href="">logout</a>
-                <a href="">profile</a>
+                <a href="/logout">Sign out</a>
             </div>
             <div class="notification-group">
-                <a href="">notification one</a>
-                <a href="">notification two</a>
-                <a href="">notification three</a>
-                <a href="">notification four</a>
+                   <ul>
+                    {{#if notifications}}
+                        {{#each notifications}}
+                            <li>{{this.dataValues.message}}</li>
+                        {{/each}}
+                    {{/if}}
+                </ul>
             </div>
         </div>
     </nav>
@@ -42,9 +43,8 @@
         {{/if}}
 
         {{#unless tasks.length}}
-            <div id="openModal">
-                <img src="/assets/icons/add-big.png" alt="" class="add-task-big">
-            </div>
+                <img src="/assets/icons/add-big.png" alt="" class="add-task-big" id="openModal">
+          
         {{/unless}}
     </main>
         {{#if tasks}}

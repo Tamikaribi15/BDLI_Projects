@@ -16,13 +16,15 @@
             <input type="checkbox" class="notification">
             <input type="checkbox" class="dropdown">
             <div class="dropdown-group">
-                <a href="">Sign out</a>
+                <a href="/logout">Sign out</a>
             </div>
             <div class="notification-group">
                 <ul>
-                    <li>john doe completed task jsndj snjd</li>
-                    <li>john doe completed task</li>
-                    <li>john doe completed task</li>
+                    {{#if notifications}}
+                        {{#each notifications}}
+                            <li>{{this.dataValues.message}}</li>
+                        {{/each}}
+                    {{/if}}
                 </ul>
             </div>
         </div>
@@ -38,6 +40,7 @@
                     <p id="description">{{this.dataValues.description}}</p>
                     <p id="date">{{this.dataValues.dueDate}}</p>
                     <p id="status">{{this.dataValues.status}}</p>
+                    <p id="taskId" style="display: none;">{{this.dataValues.taskId}}</p>
                 </div>
                 {{/if}}
             {{/each}}
@@ -52,12 +55,18 @@
                         <p id="description">{{this.dataValues.description}}</p>
                         <p id="date">{{this.dataValues.dueDate}}</p>
                         <p id="status">{{this.dataValues.status}}</p>
+                        <p id="taskId" style="display: none;">{{this.dataValues.taskId}}</p>
                     </div>
                 {{/if}}
             {{/each}}                
         </div>
-
         {{/if}}
+        
+        <!-- Hidden form for normal submission -->
+        <form id="taskForm" method="POST" style="display: none;">
+            <input type="text" name="status" id="formStatus">
+            <input type="text" name="taskId" id="formId">
+        </form>
 
         {{#unless pendingTasks}}
             {{#unless completedTasks}}
